@@ -26,6 +26,7 @@
         transition: all var(--transition);
         width: 280px;
         margin: 0;
+        border-radius: calc(var(--border-radius) * 2);
       }
       article[role=alert] header {
         display: flex;
@@ -33,6 +34,7 @@
         justify-content: space-between;
         align-items: center;
         padding: var(--spacing);
+        border-radius: calc(var(--border-radius) * 2) calc(var(--border-radius) * 2) 0 0;
       }
       article[role=alert] header a[role=button] {
         padding: calc(var(--form-element-spacing-vertical) * 0.3) calc(var(--form-element-spacing-horizontal) * 0.5);
