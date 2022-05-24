@@ -1,0 +1,87 @@
+
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+    <title>toast</title>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <style>
+      html,
+      body {
+        overflow-x: hidden;
+      }
+      div.container {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: var(--spacing);
+      }
+      article[role=alert] {
+        position: absolute;
+        top: 30px;
+        right: -500px;
+        z-index: 1023;
+        opacity: 0;
+        transition: all var(--transition);
+        width: 280px;
+        margin: 0;
+      }
+      article[role=alert] header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--spacing);
+      }
+      article[role=alert] header a[role=button] {
+        padding: calc(var(--form-element-spacing-vertical) * 0.3) calc(var(--form-element-spacing-horizontal) * 0.5);
+        box-shadow: var(--card-box-shadow);
+      }
+      article[role=alert] header * {
+        margin-bottom: 0;
+      }
+      article[data-show=true] {
+        right: 30px;
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+   <div class="container">
+   
+    <a href="#" role="button" onclick="toggleToast()">Toggle Toast</a>
+
+    <article role="alert" data-show="false" data-autohide="3000">
+      <header data-theme="dark">
+        <p>alert</p>
+        <a href="#" role="button" class="secondary" onclick="toggleToast()">&#10005;</a>
+      </header>
+      <p>Some Information</p>
+    </article>
+    
+   </div>
+
+   <script>
+
+    let toast = document.querySelector('article[role=alert]');
+    let myTout;
+
+    const toggleToast = () => {
+
+      toast.setAttribute('data-show', (toast.getAttribute('data-show') == 'false') ? 'true' : 'false');
+
+      if(toast.hasAttribute('data-autohide') && toast.getAttribute('data-autohide') >= 1000) {
+    
+        clearTimeout(myTout);
+      
+        myTout = setTimeout(()=>{
+          toast.setAttribute('data-show','false');
+        },toast.getAttribute('data-autohide'));
+        
+      }
+    }
+    
+   </script>
+  </body>
+</html>
