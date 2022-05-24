@@ -2,6 +2,6 @@
 
 Pico css simple toast with javascript
 
-[Live demo](https://rwdevelopment.github.io/toast_js)
+<a href="https://rwdevelopment.github.io/toast_js" target="_blank">Live demo</a>
 
 ![Toast](screen.webp)
