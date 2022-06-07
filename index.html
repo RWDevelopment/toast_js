@@ -66,8 +66,8 @@
 
    <script>
 
-    const toast = document.querySelector('article[role=alert]');
-    const myTout;
+    let toast = document.querySelector('article[role=alert]');
+    let myTout;
 
     const toggleToast = () => {
 
@@ -78,7 +78,9 @@
         clearTimeout(myTout);
       
         myTout = setTimeout(()=>{
+          
           toast.setAttribute('data-show','false');
+          
         },toast.getAttribute('data-autohide'));
         
       }
