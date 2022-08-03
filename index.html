@@ -69,8 +69,10 @@
     let toast = document.querySelector('article[role=alert]');
     let myTout;
 
-    const toggleToast = () => {
-
+    const toggleToast = (e) => {
+      
+      e.preventDefault();
+      
       toast.setAttribute('data-show', (toast.getAttribute('data-show') == 'false') ? 'true' : 'false');
 
       if(toast.hasAttribute('data-autohide') && toast.getAttribute('data-autohide') >= 1000) {
