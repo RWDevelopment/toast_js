@@ -52,12 +52,12 @@
   <body>
    <div class="container">
    
-    <a href="#" role="button" onclick="toggleToast(event)">Toggle Toast</a>
+    <a href="#" role="button" onclick="toggleToast()">Toggle Toast</a>
 
     <article role="alert" data-show="false" data-autohide="4000">
       <header data-theme="dark">
         <p>Alert !!!</p>
-        <a href="#" role="button" class="secondary" onclick="toggleToast(event)">&#10005;</a>
+        <a href="#" role="button" class="secondary" onclick="toggleToast()">&#10005;</a>
       </header>
       <p><strong>Lorem ipsum dolor sit amet</strong>, consectetur adipiscing elit, sed do eiusmod tempor.</p>
     </article>
@@ -70,21 +70,13 @@
     let myTout;
 
     const toggleToast = (e) => {
-      
       e.preventDefault();
-      
       toast.setAttribute('data-show', (toast.getAttribute('data-show') == 'false') ? 'true' : 'false');
-
       if(toast.hasAttribute('data-autohide') && toast.getAttribute('data-autohide') >= 1000) {
-    
         clearTimeout(myTout);
-      
         myTout = setTimeout(()=>{
-          
           toast.setAttribute('data-show','false');
-          
         },toast.getAttribute('data-autohide'));
-        
       }
     }
     
